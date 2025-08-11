@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cosmic Atlas — The Universe & Its Planets</title>
+  <meta name="description" content="Explore the universe: browse planets with search and filters. Learn key facts about the Solar System with a clean, responsive design." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%232653ff'/%3E%3Ccircle cx='50' cy='50' r='30' fill='url(%23g)'/%3E%3Cdefs%3E%3CradialGradient id='g'%3E%3Cstop offset='0' stop-color='%23ffdf6e'/%3E%3Cstop offset='1' stop-color='%23ff7b00'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">🌌</div>
+        <span class="brand-name">Cosmic Atlas</span>
+      </div>
+      <div class="header-actions">
+        <button id="theme-toggle" class="button ghost" aria-label="Toggle dark mode" title="Toggle theme">🌓</button>
+        <a class="button primary" href="#about">About the Universe</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="content" tabindex="-1">
+    <section class="hero">
+      <div class="container">
+        <h1>The Universe &amp; Its Planets</h1>
+        <p class="lead">Explore planets of our Solar System. Search, filter by type, and discover quick facts with an elegant, responsive UI.</p>
+      </div>
+    </section>
+
+    <section class="controls">
+      <div class="container controls-inner">
+        <label for="search" class="sr-only">Search planets</label>
+        <input id="search" class="input" type="search" placeholder="Search planets (e.g., Mars)…" autocomplete="off" />
+
+        <div class="filters" role="group" aria-label="Filter by planet type">
+          <button class="chip active" data-type="all" aria-pressed="true">All</button>
+          <button class="chip" data-type="terrestrial">Terrestrial</button>
+          <button class="chip" data-type="gas-giant">Gas giant</button>
+          <button class="chip" data-type="ice-giant">Ice giant</button>
+          <button class="chip" data-type="dwarf">Dwarf</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid-section">
+      <div class="container">
+        <div id="planet-grid" class="grid" aria-live="polite" aria-busy="false"></div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2>About the Universe</h2>
+        <p>
+          The universe contains all of space and time, energy and matter. Within it, stars form in galaxies; planets form from disks of dust and gas
+          around young stars. Our Solar System hosts a diverse family of worlds: rocky terrestrial planets, immense gas giants, frigid ice giants,
+          and small dwarf planets beyond Neptune.
+        </p>
+        <ul class="facts">
+          <li><strong>Terrestrial worlds</strong>: Mercury, Venus, Earth, and Mars—small, rocky, with solid surfaces.</li>
+          <li><strong>Gas giants</strong>: Jupiter and Saturn—massive, dominated by hydrogen and helium, with rings and many moons.</li>
+          <li><strong>Ice giants</strong>: Uranus and Neptune—rich in volatiles like water, ammonia, and methane.</li>
+          <li><strong>Dwarf planets</strong>: Bodies like Pluto—round but not dominant in their orbits.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>Made with curiosity ✨</span>
+      <nav class="footer-nav">
+        <a href="#content">Back to top</a>
+        <a href="https://science.nasa.gov/solar-system/planets/" target="_blank" rel="noreferrer noopener">Learn more at NASA</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-content" role="document">
+      <button class="modal-close button ghost" data-close aria-label="Close">✕</button>
+      <div id="modal-body"><!-- populated by JS --></div>
+    </div>
+  </div>
+
+  <noscript>
+    <div class="noscript">This site requires JavaScript to render the interactive planet explorer.</div>
+  </noscript>
+</body>
+</html>
